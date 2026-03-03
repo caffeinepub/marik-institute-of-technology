@@ -152,6 +152,55 @@ const stats = [
   { value: "25+", label: "Industry Partners" },
 ];
 
+// Color cycling helpers
+const programIconStyles = [
+  {
+    wrap: "w-12 h-12 bg-navy/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-navy transition-colors duration-200",
+    icon: "w-6 h-6 text-navy group-hover:text-white transition-colors duration-200",
+  },
+  {
+    wrap: "w-12 h-12 bg-teal/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal transition-colors duration-200",
+    icon: "w-6 h-6 text-teal group-hover:text-white transition-colors duration-200",
+  },
+  {
+    wrap: "w-12 h-12 bg-gold/15 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gold transition-colors duration-200",
+    icon: "w-6 h-6 text-gold-dark group-hover:text-white transition-colors duration-200",
+  },
+];
+
+const whyBorderStyles = [
+  "flex gap-4 p-5 rounded-lg border border-border border-l-4 border-l-navy hover:shadow-card transition-all duration-200",
+  "flex gap-4 p-5 rounded-lg border border-border border-l-4 border-l-teal hover:shadow-card transition-all duration-200",
+  "flex gap-4 p-5 rounded-lg border border-border border-l-4 border-l-gold hover:shadow-card transition-all duration-200",
+];
+
+const whyIconStyles = [
+  "w-11 h-11 bg-navy/10 rounded-lg flex items-center justify-center flex-shrink-0",
+  "w-11 h-11 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0",
+  "w-11 h-11 bg-gold/15 rounded-lg flex items-center justify-center flex-shrink-0",
+];
+
+const whyIconInnerStyles = [
+  "w-5 h-5 text-navy",
+  "w-5 h-5 text-teal",
+  "w-5 h-5 text-gold-dark",
+];
+
+const testimonialTopBorder = [
+  "bg-white rounded-lg p-6 shadow-card border border-border border-t-2 border-t-navy",
+  "bg-white rounded-lg p-6 shadow-card border border-border border-t-2 border-t-teal",
+  "bg-white rounded-lg p-6 shadow-card border border-border border-t-2 border-t-gold",
+];
+
+const ocids = [
+  "programs.item.1",
+  "programs.item.2",
+  "programs.item.3",
+  "programs.item.4",
+  "programs.item.5",
+  "programs.item.6",
+] as const;
+
 export default function Home() {
   return (
     <div className="w-full">
@@ -160,14 +209,13 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage:
-              "url('/assets/generated/marik-institute-hero.dim_1200x600.jpg')",
+            backgroundImage: "url('/assets/uploads/marik-institute-2-1.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-navy/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 text-gold text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-teal/20 border border-teal/40 text-teal-light text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider animate-pulse">
               Under NIMS University, Jaipur
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
@@ -183,12 +231,14 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/admissions"
+                data-ocid="hero.apply_now.primary_button"
                 className="bg-gold text-navy-dark px-6 py-3 rounded font-semibold text-sm hover:bg-gold-dark transition-colors duration-150 inline-flex items-center gap-2"
               >
                 Apply Now <ChevronRight className="w-4 h-4" />
               </Link>
               <Link
                 to="/programs"
+                data-ocid="hero.explore_programs.secondary_button"
                 className="bg-white/10 border border-white/30 text-white px-6 py-3 rounded font-semibold text-sm hover:bg-white/20 transition-colors duration-150 inline-flex items-center gap-2"
               >
                 Explore Programs
@@ -199,7 +249,12 @@ export default function Home() {
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-navy">
+      <section
+        style={{
+          background:
+            "linear-gradient(135deg, oklch(var(--navy-dark)), oklch(var(--teal-dark)))",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:divide-x md:divide-white/20">
             {stats.map((stat) => (
@@ -260,6 +315,7 @@ export default function Home() {
               </div>
               <Link
                 to="/about"
+                data-ocid="about.learn_more.link"
                 className="inline-flex items-center gap-2 text-navy font-semibold text-sm hover:text-gold transition-colors"
               >
                 Learn More About Us <ChevronRight className="w-4 h-4" />
@@ -267,7 +323,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <img
-                src="/assets/generated/marik-institute-hero.dim_1200x600.jpg"
+                src="/assets/uploads/marik-institute-2-1.jpg"
                 alt="Marik Institute of Technology Campus"
                 className="rounded-lg shadow-card w-full object-cover h-72 md:h-96"
               />
@@ -297,15 +353,17 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {programs.map((prog) => {
+            {programs.map((prog, idx) => {
               const Icon = prog.icon;
+              const style = programIconStyles[idx % 3];
               return (
                 <div
                   key={prog.title}
+                  data-ocid={ocids[idx]}
                   className="bg-white rounded-lg p-6 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-border group"
                 >
-                  <div className="w-12 h-12 bg-navy/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-navy transition-colors duration-200">
-                    <Icon className="w-6 h-6 text-navy group-hover:text-white transition-colors duration-200" />
+                  <div className={style.wrap}>
+                    <Icon className={style.icon} />
                   </div>
                   <span
                     className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
@@ -335,6 +393,7 @@ export default function Home() {
           <div className="text-center mt-8">
             <Link
               to="/programs"
+              data-ocid="programs.view_all.button"
               className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded font-semibold text-sm hover:bg-navy-dark transition-colors"
             >
               View All Programs <ChevronRight className="w-4 h-4" />
@@ -356,15 +415,12 @@ export default function Home() {
             <div className="w-16 h-1 bg-gold rounded-full mx-auto" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyChoose.map((item) => {
+            {whyChoose.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div
-                  key={item.title}
-                  className="flex gap-4 p-5 rounded-lg border border-border hover:border-gold/40 hover:shadow-card transition-all duration-200"
-                >
-                  <div className="w-11 h-11 bg-gold/15 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-gold-dark" />
+                <div key={item.title} className={whyBorderStyles[idx % 3]}>
+                  <div className={whyIconStyles[idx % 3]}>
+                    <Icon className={whyIconInnerStyles[idx % 3]} />
                   </div>
                   <div>
                     <h3 className="font-bold text-navy text-sm mb-1">
@@ -382,7 +438,13 @@ export default function Home() {
       </section>
 
       {/* Campus Facilities */}
-      <section className="py-16 md:py-20 bg-navy">
+      <section
+        style={{
+          background:
+            "linear-gradient(160deg, oklch(var(--navy-dark)) 60%, oklch(var(--teal-dark)))",
+        }}
+        className="py-16 md:py-20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
@@ -419,6 +481,7 @@ export default function Home() {
           <div className="text-center mt-8">
             <Link
               to="/campus-life"
+              data-ocid="facilities.campus_life.button"
               className="inline-flex items-center gap-2 bg-gold text-navy-dark px-6 py-3 rounded font-semibold text-sm hover:bg-gold-dark transition-colors"
             >
               Explore Campus Life <ChevronRight className="w-4 h-4" />
@@ -453,8 +516,8 @@ export default function Home() {
                   "Campus recruitment drives throughout the year",
                 ].map((point) => (
                   <div key={point} className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <div className="w-2 h-2 bg-gold rounded-full" />
+                    <div className="w-5 h-5 bg-teal/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-2 h-2 bg-teal rounded-full" />
                     </div>
                     <span className="text-sm text-muted-foreground">
                       {point}
@@ -464,6 +527,7 @@ export default function Home() {
               </div>
               <Link
                 to="/placements"
+                data-ocid="placements.details.button"
                 className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded font-semibold text-sm hover:bg-navy-dark transition-colors"
               >
                 View Placement Details <ChevronRight className="w-4 h-4" />
@@ -525,11 +589,8 @@ export default function Home() {
             <div className="w-16 h-1 bg-gold rounded-full mx-auto" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="bg-white rounded-lg p-6 shadow-card border border-border"
-              >
+            {testimonials.map((t, idx) => (
+              <div key={t.name} className={testimonialTopBorder[idx]}>
                 <Quote className="w-8 h-8 text-gold/40 mb-3" />
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4 italic">
                   "{t.quote}"
@@ -547,7 +608,13 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-navy">
+      <section
+        style={{
+          background:
+            "linear-gradient(135deg, oklch(var(--navy-dark)), oklch(var(--teal-dark)) 70%, oklch(var(--navy)))",
+        }}
+        className="py-16 md:py-20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Begin Your Journey?
@@ -560,12 +627,14 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/admissions"
+              data-ocid="cta.apply_now.primary_button"
               className="bg-gold text-navy-dark px-8 py-3 rounded font-semibold text-sm hover:bg-gold-dark transition-colors inline-flex items-center gap-2"
             >
               Apply Now <ChevronRight className="w-4 h-4" />
             </Link>
             <Link
               to="/contact"
+              data-ocid="cta.contact.secondary_button"
               className="bg-white/10 border border-white/30 text-white px-8 py-3 rounded font-semibold text-sm hover:bg-white/20 transition-colors inline-flex items-center gap-2"
             >
               Contact Us

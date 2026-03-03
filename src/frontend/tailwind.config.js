@@ -30,6 +30,14 @@ export default {
           DEFAULT: 'oklch(var(--gold))',
           dark: 'oklch(var(--gold-dark))',
         },
+        teal: {
+          DEFAULT: 'oklch(var(--teal))',
+          dark: 'oklch(var(--teal-dark))',
+          light: 'oklch(var(--teal-light))',
+        },
+        coral: {
+          DEFAULT: 'oklch(var(--coral))',
+        },
         primary: {
           DEFAULT: 'oklch(var(--primary) / <alpha-value>)',
           foreground: 'oklch(var(--primary-foreground))'
@@ -77,8 +85,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',
