@@ -30,14 +30,6 @@ export default {
           DEFAULT: 'oklch(var(--gold))',
           dark: 'oklch(var(--gold-dark))',
         },
-        teal: {
-          DEFAULT: 'oklch(var(--teal))',
-          dark: 'oklch(var(--teal-dark))',
-          light: 'oklch(var(--teal-light))',
-        },
-        coral: {
-          DEFAULT: 'oklch(var(--coral))',
-        },
         primary: {
           DEFAULT: 'oklch(var(--primary) / <alpha-value>)',
           foreground: 'oklch(var(--primary-foreground))'
@@ -82,7 +74,10 @@ export default {
           'accent-foreground': 'oklch(var(--sidebar-accent-foreground))',
           border: 'oklch(var(--sidebar-border))',
           ring: 'oklch(var(--sidebar-ring))'
-        }
+        },
+        'section-alt': 'oklch(var(--section-alt))',
+        'surface-deep': 'oklch(var(--surface-deep))',
+        'surface-raised': 'oklch(var(--surface-raised))',
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
@@ -94,9 +89,9 @@ export default {
         sm: 'calc(var(--radius) - 4px)'
       },
       boxShadow: {
-        xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
-        card: '0 2px 8px 0 rgba(10,31,75,0.08)',
-        'card-hover': '0 4px 16px 0 rgba(10,31,75,0.14)',
+        xs: '0 1px 2px 0 rgba(0,0,0,0.06)',
+        card: '0 1px 4px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05)',
+        'card-hover': '0 4px 16px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.07)',
       },
       keyframes: {
         'accordion-down': {

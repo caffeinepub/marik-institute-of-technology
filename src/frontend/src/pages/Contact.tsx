@@ -108,7 +108,7 @@ export default function Contact() {
             Contact Us
           </h1>
           <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
-          <p className="text-white/70 max-w-2xl mx-auto text-sm md:text-base">
+          <p className="text-white/90 max-w-2xl mx-auto text-sm md:text-base">
             Have questions about admissions, programs, or campus life?
             We&apos;re here to help. Reach out to us anytime.
           </p>
@@ -116,21 +116,21 @@ export default function Contact() {
       </section>
 
       {/* Contact Info + Form */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <h2 className="text-xl font-bold text-navy mb-6">
+              <h2 className="text-xl font-bold text-foreground mb-6">
                 Contact Information
               </h2>
               <div className="space-y-5">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-navy/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-navy" />
+                  <div className="w-10 h-10 bg-navy-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <div className="font-semibold text-navy text-sm">
+                    <div className="font-semibold text-foreground text-sm">
                       Campus Address
                     </div>
                     <div className="text-muted-foreground text-sm mt-0.5 leading-relaxed">
@@ -144,11 +144,11 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-navy/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-navy" />
+                  <div className="w-10 h-10 bg-navy-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <div className="font-semibold text-navy text-sm">
+                    <div className="font-semibold text-foreground text-sm">
                       Phone Numbers
                     </div>
                     <div className="text-muted-foreground text-sm mt-0.5">
@@ -159,11 +159,11 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-navy/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-navy" />
+                  <div className="w-10 h-10 bg-navy-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <div className="font-semibold text-navy text-sm">
+                    <div className="font-semibold text-foreground text-sm">
                       Email Addresses
                     </div>
                     <div className="text-muted-foreground text-sm mt-0.5">
@@ -174,11 +174,11 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-navy/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-navy" />
+                  <div className="w-10 h-10 bg-navy-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <div className="font-semibold text-navy text-sm">
+                    <div className="font-semibold text-foreground text-sm">
                       Office Hours
                     </div>
                     <div className="text-muted-foreground text-sm mt-0.5">
@@ -204,7 +204,7 @@ export default function Contact() {
                     <span>admissions@marikit.edu.in</span>
                   </div>
                 </div>
-                <p className="text-white/60 text-xs mt-3">
+                <p className="text-white/80 text-xs mt-3">
                   Our admissions team is available Monday to Saturday, 9 AM – 5
                   PM to answer all your queries.
                 </p>
@@ -213,28 +213,30 @@ export default function Contact() {
 
             {/* Inquiry Form */}
             <div className="lg:col-span-2">
-              <h2 className="text-xl font-bold text-navy mb-6">
+              <h2 className="text-xl font-bold text-foreground mb-6">
                 Send Us an Inquiry
               </h2>
 
               {submitted ? (
                 <div
                   data-ocid="contact.success_state"
-                  className="bg-green-50 border border-green-200 rounded-xl p-8 text-center"
+                  className="bg-card border border-gold/40 rounded-xl p-8 text-center"
                 >
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle className="w-8 h-8 text-green-600" />
+                  <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-8 h-8 text-gold" />
                   </div>
-                  <h3 className="text-xl font-bold text-green-800 mb-2">
+                  <h3 className="text-xl font-bold text-foreground mb-2">
                     Inquiry Submitted Successfully!
                   </h3>
-                  <p className="text-green-700 text-sm mb-4">
-                    Thank you, <strong>{form.fullName}</strong>! We have
-                    received your inquiry and our team will get back to you
-                    within 1–2 business days.
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Thank you,{" "}
+                    <strong className="text-foreground">{form.fullName}</strong>
+                    ! We have received your inquiry and our team will get back
+                    to you within 1–2 business days.
                   </p>
-                  <p className="text-green-600 text-xs">
-                    A confirmation will be sent to <strong>{form.email}</strong>
+                  <p className="text-muted-foreground text-xs">
+                    A confirmation will be sent to{" "}
+                    <strong className="text-foreground">{form.email}</strong>
                   </p>
                   <button
                     type="button"
@@ -248,7 +250,7 @@ export default function Contact() {
                         message: "",
                       });
                     }}
-                    className="mt-6 text-sm text-green-700 underline hover:text-green-900 transition-colors"
+                    className="mt-6 text-sm text-gold underline hover:text-foreground transition-colors"
                   >
                     Submit another inquiry
                   </button>
@@ -260,7 +262,7 @@ export default function Contact() {
                     <div className="space-y-1.5">
                       <Label
                         htmlFor="fullName"
-                        className="text-sm font-medium text-navy"
+                        className="text-sm font-medium text-foreground"
                       >
                         Full Name <span className="text-destructive">*</span>
                       </Label>
@@ -284,7 +286,7 @@ export default function Contact() {
                     <div className="space-y-1.5">
                       <Label
                         htmlFor="email"
-                        className="text-sm font-medium text-navy"
+                        className="text-sm font-medium text-foreground"
                       >
                         Email Address{" "}
                         <span className="text-destructive">*</span>
@@ -308,7 +310,7 @@ export default function Contact() {
                     <div className="space-y-1.5">
                       <Label
                         htmlFor="phone"
-                        className="text-sm font-medium text-navy"
+                        className="text-sm font-medium text-foreground"
                       >
                         Phone Number <span className="text-destructive">*</span>
                       </Label>
@@ -331,7 +333,7 @@ export default function Contact() {
                     <div className="space-y-1.5">
                       <Label
                         htmlFor="program"
-                        className="text-sm font-medium text-navy"
+                        className="text-sm font-medium text-foreground"
                       >
                         Program of Interest{" "}
                         <span className="text-destructive">*</span>
@@ -366,7 +368,7 @@ export default function Contact() {
                   <div className="space-y-1.5">
                     <Label
                       htmlFor="message"
-                      className="text-sm font-medium text-navy"
+                      className="text-sm font-medium text-foreground"
                     >
                       Message <span className="text-destructive">*</span>
                     </Label>
@@ -414,13 +416,13 @@ export default function Contact() {
       </section>
 
       {/* Campus Map */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Find Us
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Campus Location
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
@@ -441,28 +443,34 @@ export default function Contact() {
             />
           </div>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-white border border-border rounded-lg p-4 flex items-center gap-3 shadow-card">
+            <div className="bg-card border border-border rounded-lg p-4 flex items-center gap-3 shadow-card">
               <MapPin className="w-5 h-5 text-gold flex-shrink-0" />
               <div>
-                <div className="text-xs font-semibold text-navy">Address</div>
+                <div className="text-xs font-semibold text-foreground">
+                  Address
+                </div>
                 <div className="text-xs text-muted-foreground mt-0.5">
                   Jaipur, Rajasthan 302001, India
                 </div>
               </div>
             </div>
-            <div className="bg-white border border-border rounded-lg p-4 flex items-center gap-3 shadow-card">
+            <div className="bg-card border border-border rounded-lg p-4 flex items-center gap-3 shadow-card">
               <Phone className="w-5 h-5 text-gold flex-shrink-0" />
               <div>
-                <div className="text-xs font-semibold text-navy">Helpline</div>
+                <div className="text-xs font-semibold text-foreground">
+                  Helpline
+                </div>
                 <div className="text-xs text-muted-foreground mt-0.5">
                   +91-141-000-0000
                 </div>
               </div>
             </div>
-            <div className="bg-white border border-border rounded-lg p-4 flex items-center gap-3 shadow-card">
+            <div className="bg-card border border-border rounded-lg p-4 flex items-center gap-3 shadow-card">
               <Mail className="w-5 h-5 text-gold flex-shrink-0" />
               <div>
-                <div className="text-xs font-semibold text-navy">Email</div>
+                <div className="text-xs font-semibold text-foreground">
+                  Email
+                </div>
                 <div className="text-xs text-muted-foreground mt-0.5">
                   admissions@marikit.edu.in
                 </div>

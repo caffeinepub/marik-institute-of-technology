@@ -155,41 +155,31 @@ const stats = [
 // Color cycling helpers
 const programIconStyles = [
   {
-    wrap: "w-12 h-12 bg-navy/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-navy transition-colors duration-200",
-    icon: "w-6 h-6 text-navy group-hover:text-white transition-colors duration-200",
+    wrap: "w-12 h-12 bg-navy-light/25 rounded-lg flex items-center justify-center mb-4 group-hover:bg-navy-light transition-colors duration-200",
+    icon: "w-6 h-6 text-foreground group-hover:text-white transition-colors duration-200",
   },
   {
-    wrap: "w-12 h-12 bg-teal/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal transition-colors duration-200",
-    icon: "w-6 h-6 text-teal group-hover:text-white transition-colors duration-200",
-  },
-  {
-    wrap: "w-12 h-12 bg-gold/15 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gold transition-colors duration-200",
-    icon: "w-6 h-6 text-gold-dark group-hover:text-white transition-colors duration-200",
+    wrap: "w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gold transition-colors duration-200",
+    icon: "w-6 h-6 text-gold group-hover:text-navy-dark transition-colors duration-200",
   },
 ];
 
 const whyBorderStyles = [
-  "flex gap-4 p-5 rounded-lg border border-border border-l-4 border-l-navy hover:shadow-card transition-all duration-200",
-  "flex gap-4 p-5 rounded-lg border border-border border-l-4 border-l-teal hover:shadow-card transition-all duration-200",
-  "flex gap-4 p-5 rounded-lg border border-border border-l-4 border-l-gold hover:shadow-card transition-all duration-200",
+  "flex gap-4 p-5 rounded-lg border border-border border-l-4 border-l-navy-light bg-card hover:shadow-card transition-all duration-200",
+  "flex gap-4 p-5 rounded-lg border border-border border-l-4 border-l-gold bg-card hover:shadow-card transition-all duration-200",
 ];
 
 const whyIconStyles = [
-  "w-11 h-11 bg-navy/10 rounded-lg flex items-center justify-center flex-shrink-0",
-  "w-11 h-11 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0",
+  "w-11 h-11 bg-navy-light/20 rounded-lg flex items-center justify-center flex-shrink-0",
   "w-11 h-11 bg-gold/15 rounded-lg flex items-center justify-center flex-shrink-0",
 ];
 
-const whyIconInnerStyles = [
-  "w-5 h-5 text-navy",
-  "w-5 h-5 text-teal",
-  "w-5 h-5 text-gold-dark",
-];
+const whyIconInnerStyles = ["w-5 h-5 text-foreground", "w-5 h-5 text-gold"];
 
 const testimonialTopBorder = [
-  "bg-white rounded-lg p-6 shadow-card border border-border border-t-2 border-t-navy",
-  "bg-white rounded-lg p-6 shadow-card border border-border border-t-2 border-t-teal",
-  "bg-white rounded-lg p-6 shadow-card border border-border border-t-2 border-t-gold",
+  "bg-card rounded-lg p-6 shadow-card border border-border border-t-2 border-t-navy-light",
+  "bg-card rounded-lg p-6 shadow-card border border-border border-t-2 border-t-gold",
+  "bg-card rounded-lg p-6 shadow-card border border-border border-t-2 border-t-navy-light",
 ];
 
 const ocids = [
@@ -215,7 +205,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-navy/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-teal/20 border border-teal/40 text-teal-light text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider animate-pulse">
+            <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 text-gold text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
               Under NIMS University, Jaipur
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
@@ -223,7 +213,7 @@ export default function Home() {
               <br />
               <span className="text-gold">Engineers & Innovators</span>
             </h1>
-            <p className="text-white/80 text-base md:text-lg mb-8 leading-relaxed">
+            <p className="text-white/90 text-base md:text-lg mb-8 leading-relaxed">
               A Premier Institute of Engineering & Technology under NIMS
               University — shaping tomorrow's leaders through academic
               excellence, research, and innovation.
@@ -249,12 +239,7 @@ export default function Home() {
       </section>
 
       {/* Stats Bar */}
-      <section
-        style={{
-          background:
-            "linear-gradient(135deg, oklch(var(--navy-dark)), oklch(var(--teal-dark)))",
-        }}
-      >
+      <section className="bg-gradient-to-r from-navy-dark to-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:divide-x md:divide-white/20">
             {stats.map((stat) => (
@@ -262,7 +247,7 @@ export default function Home() {
                 <div className="text-2xl md:text-3xl font-bold text-gold">
                   {stat.value}
                 </div>
-                <div className="text-white/70 text-xs mt-1">{stat.label}</div>
+                <div className="text-white/80 text-xs mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -270,14 +255,14 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
                 About Us
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Marik Institute of Technology
               </h2>
               <div className="w-16 h-1 bg-gold rounded-full mb-6" />
@@ -303,11 +288,14 @@ export default function Home() {
                   { label: "Focus", value: "Engineering & Technology" },
                   { label: "Established", value: "Jaipur, India" },
                 ].map((item) => (
-                  <div key={item.label} className="bg-secondary/50 rounded p-3">
+                  <div
+                    key={item.label}
+                    className="bg-navy-light/15 border border-border rounded p-3"
+                  >
                     <div className="text-xs text-muted-foreground">
                       {item.label}
                     </div>
-                    <div className="text-sm font-semibold text-navy mt-0.5">
+                    <div className="text-sm font-semibold text-gold mt-0.5">
                       {item.value}
                     </div>
                   </div>
@@ -316,7 +304,7 @@ export default function Home() {
               <Link
                 to="/about"
                 data-ocid="about.learn_more.link"
-                className="inline-flex items-center gap-2 text-navy font-semibold text-sm hover:text-gold transition-colors"
+                className="inline-flex items-center gap-2 text-gold font-semibold text-sm hover:text-foreground transition-colors"
               >
                 Learn More About Us <ChevronRight className="w-4 h-4" />
               </Link>
@@ -337,13 +325,13 @@ export default function Home() {
       </section>
 
       {/* Programs Section */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Academic Programs
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               Programs Offered
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
@@ -355,12 +343,12 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {programs.map((prog, idx) => {
               const Icon = prog.icon;
-              const style = programIconStyles[idx % 3];
+              const style = programIconStyles[idx % 2];
               return (
                 <div
                   key={prog.title}
                   data-ocid={ocids[idx]}
-                  className="bg-white rounded-lg p-6 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-border group"
+                  className="bg-card rounded-lg p-6 shadow-card hover:shadow-card-hover transition-shadow duration-200 border border-border group"
                 >
                   <div className={style.wrap}>
                     <Icon className={style.icon} />
@@ -368,13 +356,13 @@ export default function Home() {
                   <span
                     className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                       prog.level === "Undergraduate"
-                        ? "bg-blue-50 text-blue-700"
-                        : "bg-gold/20 text-gold-dark"
+                        ? "bg-navy-light/20 text-foreground"
+                        : "bg-gold/20 text-gold"
                     }`}
                   >
                     {prog.level}
                   </span>
-                  <h3 className="font-bold text-navy mt-3 mb-1 text-base leading-snug">
+                  <h3 className="font-bold text-foreground mt-3 mb-1 text-base leading-snug">
                     {prog.title}
                   </h3>
                   <p className="text-muted-foreground text-xs">
@@ -382,7 +370,7 @@ export default function Home() {
                   </p>
                   <Link
                     to="/programs"
-                    className="mt-4 inline-flex items-center gap-1 text-navy text-xs font-semibold hover:text-gold transition-colors"
+                    className="mt-4 inline-flex items-center gap-1 text-gold text-xs font-semibold hover:text-foreground transition-colors"
                   >
                     View Details <ChevronRight className="w-3 h-3" />
                   </Link>
@@ -403,13 +391,13 @@ export default function Home() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Our Strengths
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               Why Choose Marik Institute?
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto" />
@@ -418,12 +406,12 @@ export default function Home() {
             {whyChoose.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className={whyBorderStyles[idx % 3]}>
-                  <div className={whyIconStyles[idx % 3]}>
-                    <Icon className={whyIconInnerStyles[idx % 3]} />
+                <div key={item.title} className={whyBorderStyles[idx % 2]}>
+                  <div className={whyIconStyles[idx % 2]}>
+                    <Icon className={whyIconInnerStyles[idx % 2]} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-navy text-sm mb-1">
+                    <h3 className="font-bold text-foreground text-sm mb-1">
                       {item.title}
                     </h3>
                     <p className="text-muted-foreground text-xs leading-relaxed">
@@ -438,13 +426,7 @@ export default function Home() {
       </section>
 
       {/* Campus Facilities */}
-      <section
-        style={{
-          background:
-            "linear-gradient(160deg, oklch(var(--navy-dark)) 60%, oklch(var(--teal-dark)))",
-        }}
-        className="py-16 md:py-20"
-      >
+      <section className="bg-navy-dark py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
@@ -454,7 +436,7 @@ export default function Home() {
               Campus Facilities
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
-            <p className="text-white/70 max-w-xl mx-auto text-sm">
+            <p className="text-white/85 max-w-xl mx-auto text-sm">
               World-class infrastructure designed to support academic excellence
               and holistic development.
             </p>
@@ -473,7 +455,7 @@ export default function Home() {
                   <h3 className="font-bold text-white text-sm mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-white/60 text-xs">{item.desc}</p>
+                  <p className="text-white/75 text-xs">{item.desc}</p>
                 </div>
               );
             })}
@@ -491,14 +473,14 @@ export default function Home() {
       </section>
 
       {/* Placement Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
                 Career Success
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Placement & Career Support
               </h2>
               <div className="w-16 h-1 bg-gold rounded-full mb-6" />
@@ -516,8 +498,8 @@ export default function Home() {
                   "Campus recruitment drives throughout the year",
                 ].map((point) => (
                   <div key={point} className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 bg-teal/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <div className="w-2 h-2 bg-teal rounded-full" />
+                    <div className="w-5 h-5 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-2 h-2 bg-gold rounded-full" />
                     </div>
                     <span className="text-sm text-muted-foreground">
                       {point}
@@ -528,7 +510,7 @@ export default function Home() {
               <Link
                 to="/placements"
                 data-ocid="placements.details.button"
-                className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded font-semibold text-sm hover:bg-navy-dark transition-colors"
+                className="inline-flex items-center gap-2 bg-gold text-navy-dark px-6 py-3 rounded font-semibold text-sm hover:bg-gold-dark transition-colors"
               >
                 View Placement Details <ChevronRight className="w-4 h-4" />
               </Link>
@@ -558,9 +540,9 @@ export default function Home() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="bg-secondary/50 border border-border rounded-lg p-5 text-center"
+                  className="bg-card border border-border rounded-lg p-5 text-center"
                 >
-                  <div className="text-2xl md:text-3xl font-bold text-navy">
+                  <div className="text-2xl md:text-3xl font-bold text-gold">
                     {stat.value}
                   </div>
                   <div className="text-sm font-semibold text-foreground mt-1">
@@ -577,13 +559,13 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Student Voices
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               What Our Students Say
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto" />
@@ -596,7 +578,9 @@ export default function Home() {
                   "{t.quote}"
                 </p>
                 <div className="border-t border-border pt-4">
-                  <div className="font-bold text-navy text-sm">{t.name}</div>
+                  <div className="font-bold text-foreground text-sm">
+                    {t.name}
+                  </div>
                   <div className="text-xs text-muted-foreground mt-0.5">
                     {t.batch}
                   </div>
@@ -608,18 +592,12 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section
-        style={{
-          background:
-            "linear-gradient(135deg, oklch(var(--navy-dark)), oklch(var(--teal-dark)) 70%, oklch(var(--navy)))",
-        }}
-        className="py-16 md:py-20"
-      >
+      <section className="bg-navy py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Begin Your Journey?
           </h2>
-          <p className="text-white/70 max-w-xl mx-auto mb-8 text-sm md:text-base">
+          <p className="text-white/85 max-w-xl mx-auto mb-8 text-sm md:text-base">
             Join thousands of students who have built successful careers through
             Marik Institute of Technology. Applications are now open for the
             upcoming academic year.
@@ -640,7 +618,7 @@ export default function Home() {
               Contact Us
             </Link>
           </div>
-          <div className="mt-10 flex flex-wrap justify-center gap-6 text-white/60 text-sm">
+          <div className="mt-10 flex flex-wrap justify-center gap-6 text-white/80 text-sm">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-gold" />
               <span>Jaipur, Rajasthan</span>

@@ -50,19 +50,21 @@ function LoginGate() {
   const { login, isLoggingIn, isInitializing } = useInternetIdentity();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-card border border-border p-8 w-full max-w-sm text-center">
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="bg-card rounded-2xl shadow-card border border-border p-8 w-full max-w-sm text-center">
         {/* MIT Logo / Branding */}
         <div
           className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
           style={{ background: "oklch(var(--navy))" }}
         >
-          <Shield className="w-8 h-8 text-white" />
+          <Shield className="w-8 h-8 text-gold" />
         </div>
         <div className="mb-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
           Marik Institute of Technology
         </div>
-        <h1 className="text-2xl font-bold text-navy mb-2">Admin Portal</h1>
+        <h1 className="text-2xl font-bold text-foreground mb-2">
+          Admin Portal
+        </h1>
         <p className="text-muted-foreground text-sm mb-8">
           Sign in with your Internet Identity to access the admin dashboard.
         </p>
@@ -101,10 +103,10 @@ function LoginGate() {
 
 function AccessDenied({ onLogout }: { onLogout: () => void }) {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div
         data-ocid="admin.error_state"
-        className="bg-white rounded-2xl shadow-card border border-destructive/30 p-8 w-full max-w-sm text-center"
+        className="bg-card rounded-2xl shadow-card border border-destructive/30 p-8 w-full max-w-sm text-center"
       >
         <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-4">
           <AlertCircle className="w-8 h-8 text-destructive" />
@@ -268,7 +270,7 @@ function InquiryRow({
   return (
     <TableRow
       data-ocid={`admin.inquiry.item.${index}`}
-      className={inquiry.isRead ? "bg-white" : "bg-blue-50/40 font-medium"}
+      className={inquiry.isRead ? "" : "bg-navy-light/15 font-medium"}
     >
       {/* Status dot */}
       <TableCell className="w-8">
@@ -279,7 +281,7 @@ function InquiryRow({
           title={inquiry.isRead ? "Read" : "Unread"}
         />
       </TableCell>
-      <TableCell className="max-w-[120px] truncate font-medium text-navy text-sm">
+      <TableCell className="max-w-[120px] truncate font-medium text-foreground text-sm">
         {inquiry.fullName}
       </TableCell>
       <TableCell className="text-sm text-muted-foreground">
@@ -316,7 +318,7 @@ function InquiryRow({
             variant="ghost"
             size="sm"
             disabled={isTogglePending}
-            className="h-7 w-7 p-0 text-muted-foreground hover:text-navy hover:bg-navy/10"
+            className="h-7 w-7 p-0 text-muted-foreground hover:text-foreground hover:bg-foreground/10"
             title={inquiry.isRead ? "Mark unread" : "Mark read"}
             onClick={() => onToggleRead(inquiry.id, inquiry.isRead)}
           >
@@ -449,7 +451,7 @@ function AdminDashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Header Bar */}
       <header
         className="flex items-center justify-between px-4 sm:px-6 py-3 shadow-sm"
@@ -508,32 +510,34 @@ function AdminDashboard() {
       <main className="flex-1 max-w-screen-xl mx-auto w-full px-4 sm:px-6 py-6 space-y-6">
         {/* Stats Row */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          <div className="bg-white rounded-xl border border-border p-4 shadow-xs">
+          <div className="bg-card rounded-xl border border-border p-4 shadow-xs">
             <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
               Total Inquiries
             </div>
-            <div className="text-3xl font-bold text-navy">{totalCount}</div>
+            <div className="text-3xl font-bold text-foreground">
+              {totalCount}
+            </div>
           </div>
-          <div className="bg-white rounded-xl border border-border p-4 shadow-xs">
+          <div className="bg-card rounded-xl border border-border p-4 shadow-xs">
             <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
               Unread
             </div>
             <div className="text-3xl font-bold text-gold">{unreadNum}</div>
           </div>
-          <div className="bg-white rounded-xl border border-border p-4 shadow-xs col-span-2 sm:col-span-1">
+          <div className="bg-card rounded-xl border border-border p-4 shadow-xs col-span-2 sm:col-span-1">
             <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
               Read
             </div>
-            <div className="text-3xl font-bold text-gray-600">
+            <div className="text-3xl font-bold text-muted-foreground">
               {totalCount - unreadNum}
             </div>
           </div>
         </div>
 
         {/* Inquiries Table */}
-        <div className="bg-white rounded-xl border border-border shadow-xs overflow-hidden">
+        <div className="bg-card rounded-xl border border-border shadow-xs overflow-hidden">
           <div className="px-4 py-3 border-b border-border flex items-center justify-between">
-            <h2 className="font-bold text-navy flex items-center gap-2">
+            <h2 className="font-bold text-foreground flex items-center gap-2">
               <Inbox className="w-4 h-4 text-gold" />
               Inquiries
             </h2>
@@ -573,15 +577,21 @@ function AdminDashboard() {
             <div className="overflow-x-auto">
               <Table data-ocid="admin.inquiry.table">
                 <TableHeader>
-                  <TableRow className="bg-gray-50/80">
-                    <TableHead className="w-8" />
-                    <TableHead className="text-xs">Name</TableHead>
-                    <TableHead className="text-xs">Email</TableHead>
-                    <TableHead className="text-xs">Phone</TableHead>
-                    <TableHead className="text-xs">Program</TableHead>
-                    <TableHead className="text-xs">Message</TableHead>
-                    <TableHead className="text-xs">Date</TableHead>
-                    <TableHead className="text-xs w-20">Actions</TableHead>
+                  <TableRow className="bg-navy-dark">
+                    <TableHead className="w-8 text-white" />
+                    <TableHead className="text-xs text-white">Name</TableHead>
+                    <TableHead className="text-xs text-white">Email</TableHead>
+                    <TableHead className="text-xs text-white">Phone</TableHead>
+                    <TableHead className="text-xs text-white">
+                      Program
+                    </TableHead>
+                    <TableHead className="text-xs text-white">
+                      Message
+                    </TableHead>
+                    <TableHead className="text-xs text-white">Date</TableHead>
+                    <TableHead className="text-xs text-white w-20">
+                      Actions
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -611,8 +621,8 @@ function AdminDashboard() {
         </div>
 
         {/* Assign Admin Role */}
-        <div className="bg-white rounded-xl border border-border shadow-xs p-5">
-          <h2 className="font-bold text-navy flex items-center gap-2 mb-4">
+        <div className="bg-card rounded-xl border border-border shadow-xs p-5">
+          <h2 className="font-bold text-foreground flex items-center gap-2 mb-4">
             <UserCog className="w-4 h-4 text-gold" />
             Assign Admin Role
           </h2>
@@ -687,10 +697,10 @@ export default function Admin() {
     return (
       <div
         data-ocid="admin.loading_state"
-        className="min-h-screen bg-gray-50 flex items-center justify-center"
+        className="min-h-screen bg-background flex items-center justify-center"
       >
         <div className="flex flex-col items-center gap-3">
-          <Loader2 className="w-8 h-8 animate-spin text-navy" />
+          <Loader2 className="w-8 h-8 animate-spin text-foreground" />
           <p className="text-sm text-muted-foreground">Verifying access…</p>
         </div>
       </div>

@@ -109,7 +109,7 @@ export default function Placements() {
             Placements
           </h1>
           <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
-          <p className="text-white/70 max-w-2xl mx-auto text-sm md:text-base">
+          <p className="text-white/90 max-w-2xl mx-auto text-sm md:text-base">
             Our dedicated Training & Placement Cell ensures every student is
             career-ready and connected with top industry opportunities.
           </p>
@@ -117,15 +117,15 @@ export default function Placements() {
       </section>
 
       {/* Placement Stats */}
-      <section className="bg-white py-12">
+      <section className="bg-background py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="bg-secondary/40 border border-border rounded-xl p-5 md:p-6 text-center shadow-card"
+                className="bg-card border border-border rounded-xl p-5 md:p-6 text-center shadow-card"
               >
-                <div className="text-3xl md:text-4xl font-bold text-navy mb-1">
+                <div className="text-3xl md:text-4xl font-bold text-gold mb-1">
                   {stat.value}
                 </div>
                 <div className="text-sm font-semibold text-foreground mb-1">
@@ -139,14 +139,14 @@ export default function Placements() {
       </section>
 
       {/* Training & Placement Cell */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div>
               <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
                 Our T&P Cell
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-navy mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                 Training & Placement Cell
               </h2>
               <div className="w-16 h-1 bg-gold rounded-full mb-6" />
@@ -174,12 +174,12 @@ export default function Placements() {
                   return (
                     <div
                       key={item.label}
-                      className="flex items-center gap-2.5 bg-white border border-border rounded-lg p-3"
+                      className="flex items-center gap-2.5 bg-card border border-border rounded-lg p-3"
                     >
                       <div className="w-8 h-8 bg-gold/15 rounded flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-4 h-4 text-gold-dark" />
+                        <Icon className="w-4 h-4 text-gold" />
                       </div>
-                      <span className="text-sm font-medium text-navy">
+                      <span className="text-sm font-medium text-foreground">
                         {item.label}
                       </span>
                     </div>
@@ -188,20 +188,20 @@ export default function Placements() {
               </div>
             </div>
             <div>
-              <h3 className="font-bold text-navy text-lg mb-5">
+              <h3 className="font-bold text-foreground text-lg mb-5">
                 Placement Process
               </h3>
               <div className="space-y-4">
                 {placementProcess.map((step) => (
                   <div
                     key={step.step}
-                    className="flex gap-4 bg-white rounded-lg p-4 border border-border shadow-card"
+                    className="flex gap-4 bg-card rounded-lg p-4 border border-border shadow-card"
                   >
-                    <div className="w-8 h-8 bg-navy rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                    <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center text-navy-dark font-bold text-xs flex-shrink-0">
                       {step.step}
                     </div>
                     <div>
-                      <h4 className="font-bold text-navy text-sm mb-1">
+                      <h4 className="font-bold text-foreground text-sm mb-1">
                         {step.title}
                       </h4>
                       <p className="text-muted-foreground text-xs leading-relaxed">
@@ -217,13 +217,13 @@ export default function Placements() {
       </section>
 
       {/* Recruiter Partnerships */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Our Partners
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               Recruiter Partnerships
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
@@ -236,11 +236,11 @@ export default function Placements() {
             {recruiters.map((company) => (
               <div
                 key={company}
-                className="bg-secondary/40 border border-border rounded-lg p-4 flex items-center justify-center text-center hover:border-gold/40 hover:bg-secondary/60 transition-all duration-200 shadow-card"
+                className="bg-card border border-border rounded-lg p-4 flex items-center justify-center text-center hover:border-gold/40 hover:bg-navy-light/15 transition-all duration-200 shadow-card"
               >
                 <div>
-                  <Building className="w-6 h-6 text-navy/40 mx-auto mb-2" />
-                  <span className="text-xs font-semibold text-navy leading-tight">
+                  <Building className="w-6 h-6 text-muted-foreground mx-auto mb-2" />
+                  <span className="text-xs font-semibold text-foreground leading-tight">
                     {company}
                   </span>
                 </div>
@@ -251,13 +251,13 @@ export default function Placements() {
       </section>
 
       {/* Alumni Success Stories */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Success Stories
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               Alumni Achievements
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto" />
@@ -266,24 +266,24 @@ export default function Placements() {
             {alumni.map((alum) => (
               <div
                 key={alum.name}
-                className="bg-white rounded-xl border border-border shadow-card p-6 hover:shadow-card-hover transition-shadow duration-200"
+                className="bg-card rounded-xl border border-border shadow-card p-6 hover:shadow-card-hover transition-shadow duration-200"
               >
                 <Quote className="w-8 h-8 text-gold/40 mb-4" />
                 <p className="text-muted-foreground text-sm leading-relaxed italic mb-5">
                   "{alum.quote}"
                 </p>
                 <div className="border-t border-border pt-4 flex items-center gap-3">
-                  <div className="w-11 h-11 bg-navy rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  <div className="w-11 h-11 bg-gold rounded-full flex items-center justify-center text-navy-dark font-bold text-sm flex-shrink-0">
                     {alum.name.charAt(0)}
                   </div>
                   <div>
-                    <div className="font-bold text-navy text-sm">
+                    <div className="font-bold text-foreground text-sm">
                       {alum.name}
                     </div>
                     <div className="text-xs text-muted-foreground">
                       {alum.batch}
                     </div>
-                    <div className="text-xs text-gold-dark font-medium mt-0.5">
+                    <div className="text-xs text-gold font-medium mt-0.5">
                       {alum.role} · {alum.company}
                     </div>
                   </div>

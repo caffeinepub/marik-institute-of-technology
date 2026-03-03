@@ -124,7 +124,7 @@ export default function Admissions() {
             Admissions
           </h1>
           <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
-          <p className="text-white/70 max-w-2xl mx-auto text-sm md:text-base">
+          <p className="text-white/90 max-w-2xl mx-auto text-sm md:text-base">
             Begin your journey towards engineering excellence. Find all the
             information you need to apply to Marik Institute of Technology.
           </p>
@@ -132,13 +132,13 @@ export default function Admissions() {
       </section>
 
       {/* Eligibility Requirements */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Step 1
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Eligibility Requirements
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mb-6" />
@@ -150,7 +150,7 @@ export default function Admissions() {
           <div className="overflow-x-auto rounded-lg border border-border shadow-card">
             <Table>
               <TableHeader>
-                <TableRow className="bg-navy hover:bg-navy">
+                <TableRow className="bg-navy-dark hover:bg-navy-dark">
                   <TableHead className="text-white font-semibold">
                     Program
                   </TableHead>
@@ -167,8 +167,11 @@ export default function Admissions() {
               </TableHeader>
               <TableBody>
                 {eligibilityData.map((row) => (
-                  <TableRow key={row.program} className="hover:bg-secondary/30">
-                    <TableCell className="font-semibold text-navy text-sm">
+                  <TableRow
+                    key={row.program}
+                    className="hover:bg-navy-light/10"
+                  >
+                    <TableCell className="font-semibold text-foreground text-sm">
                       {row.program}
                     </TableCell>
                     <TableCell className="text-sm text-muted-foreground">
@@ -189,13 +192,13 @@ export default function Admissions() {
       </section>
 
       {/* Admission Process */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Step by Step
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Admission Process
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full" />
@@ -204,13 +207,13 @@ export default function Admissions() {
             {admissionSteps.map((step) => (
               <div
                 key={step.step}
-                className="flex gap-4 bg-white rounded-lg p-5 border border-border shadow-card"
+                className="flex gap-4 bg-card rounded-lg p-5 border border-border shadow-card"
               >
                 <div className="w-10 h-10 bg-navy rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                   {step.step}
                 </div>
                 <div>
-                  <h3 className="font-bold text-navy text-sm mb-1">
+                  <h3 className="font-bold text-foreground text-sm mb-1">
                     {step.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -224,18 +227,18 @@ export default function Admissions() {
       </section>
 
       {/* Required Documents */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Documentation
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Required Documents
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mb-4" />
             <div className="flex items-start gap-2 bg-gold/10 border border-gold/30 rounded-lg p-4">
-              <AlertCircle className="w-5 h-5 text-gold-dark flex-shrink-0 mt-0.5" />
+              <AlertCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
               <p className="text-sm text-foreground">
                 Please ensure all documents are self-attested and in the
                 required format. Incomplete applications will not be processed.
@@ -246,7 +249,7 @@ export default function Admissions() {
             {documents.map((doc) => (
               <div
                 key={doc}
-                className="flex items-start gap-3 p-3 rounded-lg border border-border hover:border-gold/40 hover:bg-secondary/30 transition-colors"
+                className="flex items-start gap-3 p-3 rounded-lg border border-border hover:border-gold/40 hover:bg-navy-light/10 transition-colors"
               >
                 <CheckCircle className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-muted-foreground">{doc}</span>
@@ -257,13 +260,13 @@ export default function Admissions() {
       </section>
 
       {/* Fee Structure */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Financial Information
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-navy mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Fee Structure
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mb-4" />
@@ -275,7 +278,7 @@ export default function Admissions() {
           <div className="overflow-x-auto rounded-lg border border-border shadow-card">
             <Table>
               <TableHeader>
-                <TableRow className="bg-navy hover:bg-navy">
+                <TableRow className="bg-navy-dark hover:bg-navy-dark">
                   <TableHead className="text-white font-semibold">
                     Program
                   </TableHead>
@@ -292,8 +295,11 @@ export default function Admissions() {
               </TableHeader>
               <TableBody>
                 {feeData.map((row) => (
-                  <TableRow key={row.program} className="hover:bg-secondary/30">
-                    <TableCell className="font-semibold text-navy text-sm">
+                  <TableRow
+                    key={row.program}
+                    className="hover:bg-navy-light/10"
+                  >
+                    <TableCell className="font-semibold text-foreground text-sm">
                       {row.program}
                     </TableCell>
                     <TableCell className="text-sm text-muted-foreground">
@@ -310,8 +316,8 @@ export default function Admissions() {
               </TableBody>
             </Table>
           </div>
-          <div className="mt-4 flex items-start gap-2 bg-navy/5 border border-navy/20 rounded-lg p-4">
-            <FileText className="w-5 h-5 text-navy flex-shrink-0 mt-0.5" />
+          <div className="mt-4 flex items-start gap-2 bg-navy-light/10 border border-border rounded-lg p-4">
+            <FileText className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
             <p className="text-sm text-muted-foreground">
               Scholarships and financial aid are available for meritorious and
               economically disadvantaged students. Contact the Admissions Office
@@ -327,7 +333,7 @@ export default function Admissions() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Ready to Begin Your Journey?
           </h2>
-          <p className="text-white/70 mb-8 text-sm md:text-base">
+          <p className="text-white/85 mb-8 text-sm md:text-base">
             Take the first step towards a rewarding engineering career. Our
             admissions team is here to guide you through every step of the
             process.
@@ -339,7 +345,7 @@ export default function Admissions() {
             >
               Start Your Application <ChevronRight className="w-4 h-4" />
             </Link>
-            <div className="flex items-center justify-center gap-4 text-white/70 text-sm">
+            <div className="flex items-center justify-center gap-4 text-white/85 text-sm">
               <span className="flex items-center gap-1.5">
                 <Phone className="w-4 h-4 text-gold" /> +91-141-000-0000
               </span>

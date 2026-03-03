@@ -214,23 +214,23 @@ function ProgramCard({ program }: { program: Program }) {
   const Icon = program.icon;
 
   return (
-    <div className="bg-white rounded-lg border border-border shadow-card overflow-hidden">
+    <div className="bg-card rounded-lg border border-border hover:border-gold/30 shadow-card overflow-hidden transition-all duration-200">
       <button
         type="button"
-        className="w-full text-left p-6 flex items-start gap-4 hover:bg-secondary/30 transition-colors duration-150"
+        className="w-full text-left p-6 flex items-start gap-4 hover:bg-navy-light/10 transition-colors duration-150"
         onClick={() => setExpanded(!expanded)}
         aria-expanded={expanded}
       >
-        <div className="w-12 h-12 bg-navy/10 rounded-lg flex items-center justify-center flex-shrink-0">
-          <Icon className="w-6 h-6 text-navy" />
+        <div className="w-12 h-12 bg-navy-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+          <Icon className="w-6 h-6 text-gold" />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2 mb-1">
             <span
               className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
                 program.level === "Undergraduate"
-                  ? "bg-blue-50 text-blue-700"
-                  : "bg-gold/20 text-gold-dark"
+                  ? "bg-navy-light/20 text-foreground"
+                  : "bg-gold/20 text-gold"
               }`}
             >
               {program.level}
@@ -239,7 +239,7 @@ function ProgramCard({ program }: { program: Program }) {
               <Clock className="w-3 h-3" /> {program.duration}
             </span>
           </div>
-          <h3 className="font-bold text-navy text-base md:text-lg leading-snug">
+          <h3 className="font-bold text-foreground text-base md:text-lg leading-snug">
             {program.title}
           </h3>
         </div>
@@ -257,7 +257,7 @@ function ProgramCard({ program }: { program: Program }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Course Overview */}
             <div className="md:col-span-2">
-              <h4 className="font-bold text-navy text-sm mb-2 flex items-center gap-2">
+              <h4 className="font-bold text-foreground text-sm mb-2 flex items-center gap-2">
                 <BookOpen className="w-4 h-4 text-gold" /> Course Overview
               </h4>
               <p className="text-muted-foreground text-sm leading-relaxed">
@@ -267,7 +267,7 @@ function ProgramCard({ program }: { program: Program }) {
 
             {/* Highlights */}
             <div>
-              <h4 className="font-bold text-navy text-sm mb-3 flex items-center gap-2">
+              <h4 className="font-bold text-foreground text-sm mb-3 flex items-center gap-2">
                 <Zap className="w-4 h-4 text-gold" /> Program Highlights
               </h4>
               <ul className="space-y-2">
@@ -285,7 +285,7 @@ function ProgramCard({ program }: { program: Program }) {
 
             {/* Eligibility */}
             <div>
-              <h4 className="font-bold text-navy text-sm mb-3 flex items-center gap-2">
+              <h4 className="font-bold text-foreground text-sm mb-3 flex items-center gap-2">
                 <GraduationCap className="w-4 h-4 text-gold" /> Eligibility
                 Criteria
               </h4>
@@ -295,7 +295,7 @@ function ProgramCard({ program }: { program: Program }) {
                     key={e}
                     className="flex items-start gap-2 text-sm text-muted-foreground"
                   >
-                    <CheckCircle className="w-4 h-4 text-navy/40 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-4 h-4 text-muted-foreground flex-shrink-0 mt-0.5" />
                     {e}
                   </li>
                 ))}
@@ -304,14 +304,14 @@ function ProgramCard({ program }: { program: Program }) {
 
             {/* Career Opportunities */}
             <div className="md:col-span-2">
-              <h4 className="font-bold text-navy text-sm mb-3 flex items-center gap-2">
+              <h4 className="font-bold text-foreground text-sm mb-3 flex items-center gap-2">
                 <Briefcase className="w-4 h-4 text-gold" /> Career Opportunities
               </h4>
               <div className="flex flex-wrap gap-2">
                 {program.careers.map((career) => (
                   <span
                     key={career}
-                    className="bg-secondary/60 border border-border text-navy text-xs px-3 py-1 rounded-full font-medium"
+                    className="bg-navy-light/15 border border-border text-foreground text-xs px-3 py-1 rounded-full font-medium"
                   >
                     {career}
                   </span>
@@ -349,7 +349,7 @@ export default function Programs() {
       </section>
 
       {/* Programs List */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
@@ -362,10 +362,10 @@ export default function Programs() {
           {/* Undergraduate */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-8 h-8 bg-navy rounded flex items-center justify-center">
-                <GraduationCap className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 bg-navy-light/30 border border-border rounded flex items-center justify-center">
+                <GraduationCap className="w-4 h-4 text-foreground" />
               </div>
-              <h2 className="text-xl font-bold text-navy">
+              <h2 className="text-xl font-bold text-foreground">
                 Undergraduate Programs
               </h2>
               <div className="flex-1 h-px bg-border" />
@@ -382,10 +382,10 @@ export default function Programs() {
           {/* Postgraduate */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-8 h-8 bg-gold rounded flex items-center justify-center">
-                <Microscope className="w-4 h-4 text-navy-dark" />
+              <div className="w-8 h-8 bg-gold/20 rounded flex items-center justify-center">
+                <Microscope className="w-4 h-4 text-gold" />
               </div>
-              <h2 className="text-xl font-bold text-navy">
+              <h2 className="text-xl font-bold text-foreground">
                 Postgraduate Programs
               </h2>
               <div className="flex-1 h-px bg-border" />

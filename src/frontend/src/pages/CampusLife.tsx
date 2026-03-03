@@ -137,7 +137,7 @@ export default function CampusLife() {
             Campus Life
           </h1>
           <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
-          <p className="text-white/70 max-w-2xl mx-auto text-sm md:text-base">
+          <p className="text-white/90 max-w-2xl mx-auto text-sm md:text-base">
             Experience a vibrant campus life that nurtures academic excellence,
             personal growth, and lifelong friendships.
           </p>
@@ -145,13 +145,13 @@ export default function CampusLife() {
       </section>
 
       {/* Infrastructure */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               World-Class Facilities
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               Infrastructure
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
@@ -166,7 +166,7 @@ export default function CampusLife() {
               return (
                 <div
                   key={item.title}
-                  className="bg-white rounded-lg border border-border shadow-card overflow-hidden hover:shadow-card-hover transition-shadow duration-200"
+                  className="bg-card rounded-lg border border-border shadow-card overflow-hidden hover:shadow-card-hover transition-shadow duration-200"
                 >
                   <div className="relative h-48 md:h-56 overflow-hidden">
                     <img
@@ -180,7 +180,7 @@ export default function CampusLife() {
                     </div>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-bold text-navy text-base mb-2">
+                    <h3 className="font-bold text-foreground text-base mb-2">
                       {item.title}
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
@@ -193,25 +193,64 @@ export default function CampusLife() {
           </div>
 
           {/* Additional facilities */}
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { icon: HomeIcon, label: "Boys Hostel" },
-              { icon: HomeIcon, label: "Girls Hostel" },
-              { icon: Wrench, label: "Workshop" },
-              { icon: Users, label: "Seminar Hall" },
-              { icon: BookOpen, label: "Reading Room" },
-              { icon: Trophy, label: "Gymnasium" },
+              {
+                icon: HomeIcon,
+                label: "Boys Hostel",
+                image: "/assets/uploads/marik-institute-2-1.jpg",
+              },
+              {
+                icon: HomeIcon,
+                label: "Girls Hostel",
+                image: "/assets/uploads/marik-institute-2-1.jpg",
+              },
+              {
+                icon: Wrench,
+                label: "Workshop",
+                image: "/assets/generated/lab-interior.dim_800x500.png",
+              },
+              {
+                icon: Users,
+                label: "Seminar Hall",
+                image: "/assets/generated/classroom.dim_800x500.png",
+              },
+              {
+                icon: BookOpen,
+                label: "Reading Room",
+                image: "/assets/generated/library.dim_800x500.png",
+              },
+              {
+                icon: Trophy,
+                label: "Gymnasium",
+                image: "/assets/generated/sports.dim_800x500.png",
+              },
             ].map((item) => {
               const Icon = item.icon;
               return (
                 <div
                   key={item.label}
-                  className="bg-secondary/50 border border-border rounded-lg p-4 text-center"
+                  className="bg-card rounded-lg border border-border shadow-card overflow-hidden hover:shadow-card-hover transition-shadow duration-200"
                 >
-                  <Icon className="w-6 h-6 text-navy mx-auto mb-2" />
-                  <span className="text-xs font-semibold text-navy">
-                    {item.label}
-                  </span>
+                  <div className="relative h-32 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.label}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-navy/25" />
+                    <div className="absolute bottom-2 left-2 bg-gold text-navy-dark p-1.5 rounded">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="p-3">
+                    <span className="text-sm font-semibold text-foreground">
+                      {item.label}
+                    </span>
+                  </div>
                 </div>
               );
             })}
@@ -220,13 +259,13 @@ export default function CampusLife() {
       </section>
 
       {/* Student Activities */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Beyond Academics
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               Student Activities
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
@@ -242,12 +281,12 @@ export default function CampusLife() {
               return (
                 <div
                   key={activity.title}
-                  className="bg-white rounded-lg p-5 border border-border shadow-card hover:border-gold/40 hover:shadow-card-hover transition-all duration-200"
+                  className="bg-card rounded-lg p-5 border border-border shadow-card hover:border-gold/40 hover:shadow-card-hover transition-all duration-200"
                 >
-                  <div className="w-11 h-11 bg-navy/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-navy" />
+                  <div className="w-11 h-11 bg-navy-light/20 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-gold" />
                   </div>
-                  <h3 className="font-bold text-navy text-sm mb-2">
+                  <h3 className="font-bold text-foreground text-sm mb-2">
                     {activity.title}
                   </h3>
                   <p className="text-muted-foreground text-xs leading-relaxed">
@@ -271,7 +310,7 @@ export default function CampusLife() {
               Technical Fests
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
-            <p className="text-white/70 max-w-xl mx-auto text-sm">
+            <p className="text-white/85 max-w-xl mx-auto text-sm">
               Our technical festivals are platforms for innovation, competition,
               and collaboration that bring together the brightest minds.
             </p>
@@ -288,7 +327,7 @@ export default function CampusLife() {
                 <h3 className="text-2xl font-bold text-white mb-3">
                   {fest.name}
                 </h3>
-                <p className="text-white/70 text-sm leading-relaxed mb-5">
+                <p className="text-white/85 text-sm leading-relaxed mb-5">
                   {fest.desc}
                 </p>
                 <div className="space-y-2">
@@ -309,13 +348,13 @@ export default function CampusLife() {
       </section>
 
       {/* Workshops & Seminars */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Continuous Learning
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               Workshops & Seminars
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
@@ -328,9 +367,11 @@ export default function CampusLife() {
             {workshops.map((ws) => (
               <div
                 key={ws.title}
-                className="border-l-4 border-gold bg-secondary/40 rounded-r-lg p-5 hover:bg-secondary/60 transition-colors duration-200"
+                className="border-l-4 border-gold bg-card border border-border rounded-r-lg p-5 hover:border-gold/60 transition-colors duration-200"
               >
-                <h3 className="font-bold text-navy text-sm mb-2">{ws.title}</h3>
+                <h3 className="font-bold text-foreground text-sm mb-2">
+                  {ws.title}
+                </h3>
                 <p className="text-muted-foreground text-xs leading-relaxed">
                   {ws.desc}
                 </p>

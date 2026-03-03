@@ -55,7 +55,7 @@ export default function About() {
             About Us
           </h1>
           <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
-          <p className="text-white/70 max-w-2xl mx-auto text-sm md:text-base">
+          <p className="text-white/90 max-w-2xl mx-auto text-sm md:text-base">
             Learn about our history, vision, leadership, and the values that
             drive academic excellence at Marik Institute of Technology.
           </p>
@@ -63,13 +63,13 @@ export default function About() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Our Direction
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               Vision & Mission
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto" />
@@ -80,23 +80,25 @@ export default function About() {
                 <Eye className="w-7 h-7 text-gold" />
               </div>
               <h3 className="text-xl font-bold mb-4 text-gold">Our Vision</h3>
-              <p className="text-white/80 leading-relaxed text-sm">
+              <p className="text-white/90 leading-relaxed text-sm">
                 To be a globally recognized institution of engineering and
                 technology excellence, producing innovative, ethical, and
                 socially responsible engineers who contribute meaningfully to
                 national development and global progress.
               </p>
-              <p className="text-white/80 leading-relaxed text-sm mt-3">
+              <p className="text-white/90 leading-relaxed text-sm mt-3">
                 We envision a future where our graduates lead transformative
                 change across industries, driven by a deep commitment to
                 knowledge, integrity, and human advancement.
               </p>
             </div>
-            <div className="bg-secondary/40 border border-border rounded-xl p-8">
-              <div className="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-5">
-                <Target className="w-7 h-7 text-navy" />
+            <div className="bg-card border border-border rounded-xl p-8">
+              <div className="w-14 h-14 bg-navy-light/20 rounded-xl flex items-center justify-center mb-5">
+                <Target className="w-7 h-7 text-gold" />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-navy">Our Mission</h3>
+              <h3 className="text-xl font-bold mb-4 text-foreground">
+                Our Mission
+              </h3>
               <ul className="space-y-3">
                 {[
                   "Provide quality technical education through innovative teaching methodologies and industry-aligned curriculum.",
@@ -122,19 +124,19 @@ export default function About() {
       </section>
 
       {/* Leadership Message */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               From the Leadership
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               Director's Message
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto" />
           </div>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-xl shadow-card border border-border overflow-hidden">
+            <div className="bg-card rounded-xl shadow-card border border-border overflow-hidden">
               <div className="bg-navy p-6 md:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-5">
                 <div className="w-20 h-20 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0 border-2 border-gold/40">
                   <span className="text-gold text-2xl font-bold">DR</span>
@@ -146,7 +148,7 @@ export default function About() {
                   <p className="text-gold text-sm font-medium mt-1">
                     Director, Marik Institute of Technology
                   </p>
-                  <p className="text-white/60 text-xs mt-1">
+                  <p className="text-white/75 text-xs mt-1">
                     Ph.D. (IIT Delhi) | 25+ Years in Academia & Research
                   </p>
                 </div>
@@ -173,7 +175,7 @@ export default function About() {
                   through the power of engineering and technology.
                 </p>
                 <div className="mt-6 pt-5 border-t border-border">
-                  <p className="text-navy font-semibold text-sm">
+                  <p className="text-foreground font-semibold text-sm">
                     Dr. Rajendra Kumar Sharma
                   </p>
                   <p className="text-muted-foreground text-xs">
@@ -187,14 +189,14 @@ export default function About() {
       </section>
 
       {/* Academic Philosophy */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
                 Our Approach
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Academic Philosophy
               </h2>
               <div className="w-16 h-1 bg-gold rounded-full mb-6" />
@@ -240,10 +242,10 @@ export default function About() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="bg-secondary/50 border border-border rounded-lg p-4"
+                  className="bg-card border border-border rounded-lg p-4 shadow-sm"
                 >
                   <div className="w-2 h-2 bg-gold rounded-full mb-2" />
-                  <h4 className="font-bold text-navy text-sm mb-1">
+                  <h4 className="font-bold text-foreground text-sm mb-1">
                     {item.label}
                   </h4>
                   <p className="text-muted-foreground text-xs leading-relaxed">
@@ -257,13 +259,13 @@ export default function About() {
       </section>
 
       {/* Institutional Goals */}
-      <section className="py-16 md:py-20 bg-secondary/30">
+      <section className="py-16 md:py-20 bg-section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold font-semibold text-sm uppercase tracking-wider mb-2">
               Our Commitments
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
               Institutional Goals
             </h2>
             <div className="w-16 h-1 bg-gold rounded-full mx-auto mb-4" />
@@ -278,12 +280,12 @@ export default function About() {
               return (
                 <div
                   key={goal.title}
-                  className="bg-white rounded-lg p-6 shadow-card border border-border hover:border-gold/40 hover:shadow-card-hover transition-all duration-200"
+                  className="bg-card rounded-lg p-6 shadow-card border border-border hover:border-gold/40 hover:shadow-card-hover transition-all duration-200"
                 >
-                  <div className="w-12 h-12 bg-navy/10 rounded-lg flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-navy" />
+                  <div className="w-12 h-12 bg-navy-light/20 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-gold" />
                   </div>
-                  <h3 className="font-bold text-navy text-base mb-2">
+                  <h3 className="font-bold text-foreground text-base mb-2">
                     {goal.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
